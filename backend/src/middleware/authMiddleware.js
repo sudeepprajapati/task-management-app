@@ -1,18 +1,25 @@
 import jwt from "jsonwebtoken";
+import ApiError from "../utils/ApiError.js";
 
 const protect = (req, res, next) => {
-    const token = req.headers.authorization;
-
-    if (!token) {
-        return res.status(401).json({ message: "No token provided" });
-    }
-
     try {
+        const authHeader = req.headers.authorization;
+
+        if (!authHeader || !authHeader.startsWith("Bearer ")) {
+            throw new ApiError(401, "Unauthorized request");
+        }
+
+        const token = authHeader.split(" ")[1];
+
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        req.userId = decoded.id;
+
+        req.user = {
+            id: decoded.id
+        };
+
         next();
     } catch (error) {
-        res.status(401).json({ message: "Invalid token" });
+        next(new ApiError(401, "Invalid or expired token"));
     }
 };
 
