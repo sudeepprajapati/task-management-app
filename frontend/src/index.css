@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+:root {
+  /* Page Background*/
+  --bg-primary: #0e1116;
+  --bg-secondary: #101520;
+  --bg-tertiary: #181d28;
+
+  /* Cards / Inputs / Surfaces */
+  --card-bg: #151a24;
+  --card-border: #242b3a;
+  --card-hover: #1b2230;
+
+  /* Navbar */
+  --navbar-bg: #0d1015;
+  --navbar-border: #222836;
+
+  /* Text */
+  --text-primary: #e9ecf1;
+  --text-secondary: #b2b8c4;
+  --text-muted: #7d8594;
+
+  /* Accents */
+  /* Electric indigo */
+  --accent-violet: #5f6fff;
+  --accent-violet-light: #8a96ff;
+
+  /* Oxide red*/
+  --accent-rose: #d14b4b;
+  --accent-rose-light: #e67a7a;
+
+  /* Arctic teal*/
+  --accent-cyan: #3fa6b3;
+  --accent-cyan-light: #6fc8d2;
+
+  /* Status */
+  --status-pending: #1c1a1f;
+  /* neutral ash */
+  --status-pending-text: #9a9faa;
+
+  --status-progress: #1a1c2a;
+  /* deep night-indigo */
+  --status-progress-text: #5f6fff;
+
+  --status-completed: #16221d;
+  /* dark mineral green */
+  --status-completed-text: #5fbf8a;
+
+}
+
+html {
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
